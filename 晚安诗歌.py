@@ -1,10 +1,6 @@
 from flask import Flask, render_template
 from datetime import datetime
 from random import randint
-
-from zmq.backend.select import public_api
-
-
 def fun():
     hours=datetime.now().hour
     if 0<hours<7:
@@ -28,4 +24,5 @@ def date():
     formatted_time=now.strftime("%Y-%m-%d%H:%M:%S")
     with open(r"C:\Users\29787\Desktop\诗经\文件{}.txt".format(num),'r',encoding='utf-8') as f:
         return render_template('愚弄网站.html',h=f"现在是北京时间{formatted_time},{fun()}",poem=f.read())
+
 app.run(debug=True,port=5000,host='0.0.0.0')
